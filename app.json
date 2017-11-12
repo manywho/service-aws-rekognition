@@ -1,0 +1,19 @@
+{
+  "name": "Boomi Flow AWS Rekognition Service",
+  "description": "A plugin that allows your Boomi Flow apps to use the AWS Rekognition API",
+  "repository": "https://github.com/manywho/service-aws-rekognition",
+  "logo": "https://s3.amazonaws.com/manywho-service-assets/icons/service-aws-rekognition.png",
+  "keywords": ["manywho", "boomi", "aws", "rekognition", "plugin", "workflow", "ai", "vision"],
+  "S3_BUCKET": {
+    "description": "The AWS S3 bucket used to store uploads temporarily",
+    "required": true
+  },
+  "S3_ACCESS_KEY": {
+    "description": "A valid AWS S3 access key used to store uploads temporarily",
+    "required": true
+  },
+  "S3_SECRET_KEY": {
+    "description": "A valid AWS S3 secret key used to store uploads temporarily",
+    "required": true
+  }
+}
