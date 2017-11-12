@@ -1,5 +1,5 @@
 {
-  "name": "Boomi Flow AWS Rekognition Service",
+  "name": "Boomi Flow Rekognition Service",
   "description": "A plugin that allows your Boomi Flow apps to use the AWS Rekognition API",
   "repository": "https://github.com/manywho/service-aws-rekognition",
   "logo": "https://s3.amazonaws.com/manywho-service-assets/icons/service-aws-rekognition.png",
