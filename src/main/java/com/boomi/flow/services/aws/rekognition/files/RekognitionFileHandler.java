@@ -9,10 +9,13 @@ import com.manywho.sdk.services.files.FileUpload;
 import com.manywho.sdk.services.types.system.$File;
 
 import javax.inject.Inject;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
 public class RekognitionFileHandler implements FileHandler<ApplicationConfiguration> {
+    final static private Integer LINK_EXPIRATION_IN_MS = 300000;
+
     private final AmazonS3 s3;
 
     @Inject
@@ -35,6 +38,13 @@ public class RekognitionFileHandler implements FileHandler<ApplicationConfigurat
 
         s3.putObject(System.getenv("AWS_S3_BUCKET"), id, fileUpload.getContent(), new ObjectMetadata());
 
-        return new $File(id, id);
+        return new $File(id, id, null, generateSignedUrl(s3, id));
+    }
+
+    private static String generateSignedUrl(AmazonS3 s3Client, String id) {
+        Date expiresAt = new Date(System.currentTimeMillis() + LINK_EXPIRATION_IN_MS);
+
+        return s3Client.generatePresignedUrl(System.getenv("AWS_S3_BUCKET"), id, expiresAt)
+                .toString();
     }
 }
