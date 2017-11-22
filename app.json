@@ -5,16 +5,24 @@
   "logo": "https://s3.amazonaws.com/manywho-service-assets/icons/service-aws-rekognition.png",
   "keywords": ["manywho", "boomi", "aws", "rekognition", "plugin", "workflow", "ai", "vision"],
   "env": {
+    "AWS_REKOGNITION_REGION": {
+      "description": "The AWS region to use for Rekognition",
+      "required": true
+    },
     "AWS_S3_BUCKET": {
       "description": "The AWS S3 bucket used to store uploads temporarily",
       "required": true
     },
+    "AWS_S3_REGION": {
+      "description": "The AWS S3 region for the bucket used to store uploads temporarily",
+      "required": true
+    },
     "AWS_ACCESS_KEY": {
-      "description": "A valid AWS S3 access key used to store uploads temporarily",
+      "description": "A valid AWS access key used to store uploads temporarily",
       "required": true
     },
     "AWS_SECRET_KEY": {
-      "description": "A valid AWS S3 secret key used to store uploads temporarily",
+      "description": "A valid AWS secret key used to store uploads temporarily",
       "required": true
     }
   }

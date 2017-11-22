@@ -2,8 +2,6 @@ package com.boomi.flow.services.aws.rekognition.guice;
 
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
-import com.amazonaws.auth.BasicAWSCredentials;
-import com.amazonaws.regions.Regions;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.google.inject.Provider;
@@ -21,7 +19,7 @@ public class AmazonS3Provider implements Provider<AmazonS3> {
     @Override
     public AmazonS3 get() {
         return AmazonS3ClientBuilder.standard()
-                .withRegion(Regions.US_EAST_1)
+                .withRegion(System.getenv("AWS_S3_REGION"))
                 .withCredentials(new AWSStaticCredentialsProvider(credentials))
                 .build();
     }
