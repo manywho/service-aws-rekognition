@@ -4,22 +4,14 @@ import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
-import com.google.inject.Provider;
+import com.boomi.flow.services.aws.rekognition.ApplicationConfiguration;
 
-import javax.inject.Inject;
+public class AmazonS3Factory {
 
-public class AmazonS3Provider implements Provider<AmazonS3> {
-    private final AWSCredentials credentials;
+    public AmazonS3 create(ApplicationConfiguration configuration, AWSCredentials credentials) {
 
-    @Inject
-    public AmazonS3Provider(AWSCredentials credentials) {
-        this.credentials = credentials;
-    }
-
-    @Override
-    public AmazonS3 get() {
         return AmazonS3ClientBuilder.standard()
-                .withRegion(System.getenv("AWS_S3_REGION"))
+                .withRegion(configuration.getS3region())
                 .withCredentials(new AWSStaticCredentialsProvider(credentials))
                 .build();
     }
