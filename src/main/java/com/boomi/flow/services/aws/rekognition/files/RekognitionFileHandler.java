@@ -41,7 +41,7 @@ public class RekognitionFileHandler implements FileHandler<ApplicationConfigurat
 
         String id = UUID.randomUUID().toString();
 
-        s3.putObject(configuration.getS3bucketName(), id, fileUpload.getContent(), new ObjectMetadata());
+        s3.putObject(configuration.getS3BucketName(), id, fileUpload.getContent(), new ObjectMetadata());
 
         return new $File(id, id, null, generateSignedUrl(configuration, s3, id));
     }
@@ -49,7 +49,7 @@ public class RekognitionFileHandler implements FileHandler<ApplicationConfigurat
     private static String generateSignedUrl(ApplicationConfiguration configuration, AmazonS3 s3Client, String id) {
         Date expiresAt = new Date(System.currentTimeMillis() + LINK_EXPIRATION_IN_MS);
 
-        return s3Client.generatePresignedUrl(configuration.getS3bucketName(), id, expiresAt)
+        return s3Client.generatePresignedUrl(configuration.getS3BucketName(), id, expiresAt)
                 .toString();
     }
 }

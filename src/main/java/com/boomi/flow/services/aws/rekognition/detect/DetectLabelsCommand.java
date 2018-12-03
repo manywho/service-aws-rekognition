@@ -36,7 +36,7 @@ public class DetectLabelsCommand implements ActionCommand<ApplicationConfigurati
                     new DetectLabelsRequest()
                         .withImage(new Image()
                                 .withS3Object(new S3Object()
-                                        .withBucket(configuration.getS3bucketName())
+                                        .withBucket(configuration.getS3BucketName())
                                         .withName(inputs.getFile().getName())
                                 ))
                         .withMaxLabels(inputs.getLimit())

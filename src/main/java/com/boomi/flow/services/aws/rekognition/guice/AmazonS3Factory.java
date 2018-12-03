@@ -11,7 +11,7 @@ public class AmazonS3Factory {
     public AmazonS3 create(ApplicationConfiguration configuration, AWSCredentials credentials) {
 
         return AmazonS3ClientBuilder.standard()
-                .withRegion(configuration.getS3region())
+                .withRegion(configuration.getS3Region())
                 .withCredentials(new AWSStaticCredentialsProvider(credentials))
                 .build();
     }

@@ -4,7 +4,7 @@ import com.manywho.sdk.api.ContentType;
 import com.manywho.sdk.services.configuration.Configuration;
 
 public class ApplicationConfiguration implements Configuration {
-    @Configuration.Setting(name = "S3 Bucket Name", contentType = ContentType.String)
+    @Configuration.Setting(name = "Bucket Name", contentType = ContentType.String)
     private String s3bucketName;
 
     @Configuration.Setting(name = "Access Key", contentType = ContentType.String)
@@ -13,13 +13,13 @@ public class ApplicationConfiguration implements Configuration {
     @Configuration.Setting(name = "Secret Key", contentType = ContentType.Password)
     private String secretKey;
 
-    @Configuration.Setting(name = "S3 Region", contentType = ContentType.String)
+    @Configuration.Setting(name = "Bucket Region", contentType = ContentType.String)
     private String s3region;
 
-    @Configuration.Setting(name = "Rekognition Region", contentType = ContentType.String)
+    @Configuration.Setting(name = "Region", contentType = ContentType.String)
     private String rekognitionRegion;
 
-    public String getS3bucketName() {
+    public String getS3BucketName() {
         return s3bucketName;
     }
 
@@ -31,7 +31,7 @@ public class ApplicationConfiguration implements Configuration {
         return secretKey;
     }
 
-    public String getS3region() {
+    public String getS3Region() {
         return s3region;
     }
 
